@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Éfrata — Centro Clínico Integrado em Alta Floresta D'Oeste/RO. Odontologia, Ginecologia, Obstetrícia, Pediatria, Gastroenterologia e Medicina Fetal. Cuidando de todas as fases da vida." />
+<meta name="theme-color" content="#17140F" />
+<title>Éfrata — Centro Clínico Integrado | Alta Floresta D'Oeste</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<style>
+/* ========== DESIGN TOKENS — ÉFRATA ========== */
+:root {
+  --black:        #17140F;  /* preto carvão quente — fundo principal */
+  --black-80:     #231F18;
+  --black-60:     #3A3428;
+  --ink:          #1C1A15;
+  --ink-70:       rgba(28,26,21,.72);
+  --ink-50:       rgba(28,26,21,.55);
+  --ink-30:       rgba(28,26,21,.32);
+  --cream:        #EFE6D5;  /* creme pérola — tipografia do logo */
+  --cream-soft:   #F5EFE1;
+  --cream-deep:   #E4D9C2;
+  --paper:        #FBF8F1;  /* fundo claro principal */
+  --sage:         #7A8968;  /* verde sálvia — folhagem do logo */
+  --sage-deep:    #5E6B4F;
+  --sage-light:   #A7B396;
+  --gold:         #C9A961;  /* acento sutil */
+  --gold-soft:    #E0C994;
+  --line:         rgba(28,26,21,.08);
+  --line-dark:    rgba(239,230,213,.12);
+  --shadow-sm: 0 2px 10px rgba(23,20,15,.06);
+  --shadow-md: 0 14px 40px rgba(23,20,15,.08);
+  --shadow-lg: 0 30px 80px rgba(23,20,15,.14);
+  --radius: 14px;
+  --radius-lg: 24px;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+/* ========== RESET ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px; line-height: 1.65; color: var(--ink);
+  background: var(--paper); overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+h1, h2, h3, h4, h5 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500; line-height: 1.12; letter-spacing: -0.01em;
+}
+.container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+/* ========== BUTTONS ========== */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 28px; border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 14.5px; letter-spacing: 0.02em;
+  transition: all .35s var(--ease); white-space: nowrap;
+  border: 1px solid transparent;
+}
+.btn-wa { background: #25D366; color: #FFF; box-shadow: 0 8px 24px rgba(37,211,102,.25); }
+.btn-wa:hover { background: #20BD5A; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(37,211,102,.35); }
+.btn-dark { background: var(--black); color: var(--cream); }
+.btn-dark:hover { background: #000; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-ghost-dark { background: transparent; color: var(--cream); border-color: rgba(239,230,213,.25); }
+.btn-ghost-dark:hover { background: rgba(239,230,213,.08); border-color: rgba(239,230,213,.6); }
+.btn-ghost-light { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost-light:hover { border-color: var(--ink); }
+.btn-sage { background: var(--sage); color: var(--cream); }
+.btn-sage:hover { background: var(--sage-deep); transform: translateY(-2px); }
+
+/* ========== LOGO (inline SVG) ========== */
+.logo { display: inline-flex; align-items: center; gap: 14px; transition: color .3s; }
+.logo-sym {
+  width: 30px; height: 44px; flex-shrink: 0;
+  color: var(--sage); transition: color .3s;
+}
+.header.scrolled .logo-sym { color: var(--sage-deep); }
+.logo-type {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; line-height: 1;
+}
+.logo-type .name {
+  font-size: 26px; letter-spacing: 0.08em;
+  display: block;
+}
+.logo-type .tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  margin-top: 6px; opacity: 0.72; display: block;
+}
+
+/* ========== HEADER ========== */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 22px 0; transition: all .4s var(--ease);
+  color: var(--cream);
+}
+.header.scrolled {
+  background: rgba(23, 20, 15, 0.9);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(239,230,213,.08);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 13.5px; font-weight: 500; letter-spacing: 0.02em;
+  position: relative; padding: 6px 0; transition: color .3s;
+  color: var(--cream);
+}
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; bottom: 0;
+  height: 1px; width: 0; background: var(--gold); transition: width .35s var(--ease);
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { display: flex; align-items: center; gap: 12px; }
+.burger { display: none; width: 42px; height: 42px; align-items: center; justify-content: center; color: var(--cream); font-size: 22px; }
+
+/* ========== HERO ========== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  color: var(--cream); overflow: hidden; isolation: isolate;
+  background: var(--black);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(122,137,104,.14), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 100%, rgba(201,169,97,.12), transparent 60%),
+    linear-gradient(180deg, #0F0D09 0%, #17140F 50%, #1C1915 100%);
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background-image:
+    radial-gradient(rgba(239,230,213,.04) 1px, transparent 1px),
+    radial-gradient(rgba(239,230,213,.03) 1px, transparent 1px);
+  background-size: 32px 32px, 16px 16px;
+  background-position: 0 0, 16px 16px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 40%, transparent 80%);
+}
+.hero-inner {
+  padding: 160px 0 120px; width: 100%; position: relative;
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sage-light); font-weight: 500;
+  padding: 9px 20px; border: 1px solid rgba(167,179,150,.3); border-radius: 999px;
+  margin-bottom: 32px;
+}
+.hero-eyebrow::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--sage-light); }
+.hero h1 {
+  font-size: clamp(2.8rem, 6.2vw, 5.4rem);
+  font-weight: 500; margin-bottom: 28px;
+  font-style: normal;
+}
+.hero h1 em {
+  font-style: italic; color: var(--sage-light);
+  font-weight: 400;
+}
+.hero-sub {
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem); max-width: 560px;
+  color: rgba(239,230,213,.78); margin-bottom: 44px; line-height: 1.75;
+}
+.hero-specialties {
+  display: flex; flex-wrap: wrap; gap: 10px 22px; margin-bottom: 48px;
+  font-size: 13px; color: rgba(239,230,213,.7);
+}
+.hero-specialties span { display: inline-flex; align-items: center; gap: 8px; }
+.hero-specialties i { color: var(--sage-light); font-size: 10px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.hero-visual {
+  position: relative; aspect-ratio: 4/5;
+  border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(239,230,213,.1);
+}
+.hero-visual img { width: 100%; height: 100%; object-fit: cover; }
+.hero-visual .plate {
+  position: absolute; bottom: 20px; left: 20px; right: 20px;
+  background: rgba(23,20,15,.82); backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 20px 24px; border-radius: 14px;
+  border: 1px solid rgba(239,230,213,.1);
+}
+.hero-visual .plate h3 {
+  font-size: 1.3rem; color: var(--cream); margin-bottom: 4px;
+}
+.hero-visual .plate p {
+  font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--sage-light); font-family: 'Inter', sans-serif; font-weight: 500;
+}
+
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  color: rgba(239,230,213,.5); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  z-index: 3;
+}
+.hero-scroll::after {
+  content: ''; width: 1px; height: 40px; background: rgba(239,230,213,.3);
+  animation: scrollLine 2.4s var(--ease) infinite;
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ========== TAGLINE STRIP ========== */
+.tagline-strip {
+  background: var(--black);
+  padding: 40px 0; overflow: hidden;
+  border-top: 1px solid rgba(239,230,213,.08);
+  border-bottom: 1px solid rgba(239,230,213,.08);
+  color: var(--cream);
+}
+.marquee {
+  display: flex; gap: 60px; white-space: nowrap;
+  animation: marq 40s linear infinite;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1.6rem; font-weight: 400;
+}
+.marquee span { display: inline-flex; align-items: center; gap: 60px; }
+.marquee span::after { content: '✦'; color: var(--sage); font-style: normal; font-size: 1rem; }
+@keyframes marq { to { transform: translateX(-50%); } }
+
+/* ========== SECTION PRIMITIVES ========== */
+.section { padding: 130px 0; position: relative; }
+.section-eyebrow {
+  display: inline-block; font-size: 11px; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--sage-deep); font-weight: 600;
+  margin-bottom: 20px;
+}
+.section-eyebrow::before { content: '— '; color: var(--gold); }
+.section-title {
+  font-size: clamp(2.1rem, 4vw, 3.6rem); font-weight: 500;
+  max-width: 780px; line-height: 1.08; margin-bottom: 22px;
+}
+.section-title em { font-style: italic; color: var(--sage-deep); font-weight: 500; }
+.section-lead { font-size: 1.06rem; color: var(--ink-70); max-width: 640px; line-height: 1.75; }
+.section-head { margin-bottom: 76px; }
+.section-head.center { text-align: center; }
+.section-head.center .section-title,
+.section-head.center .section-lead { margin-left: auto; margin-right: auto; }
+
+/* dark variant */
+.section.dark { background: var(--black); color: var(--cream); }
+.section.dark .section-eyebrow { color: var(--sage-light); }
+.section.dark .section-title em { color: var(--sage-light); }
+.section.dark .section-lead { color: rgba(239,230,213,.72); }
+
+/* ========== TRUST BAR ========== */
+.trust {
+  background: var(--paper); padding: 70px 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.trust-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 40px; text-align: center;
+}
+.trust-item .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 4.2vw, 3.6rem); font-weight: 600;
+  color: var(--black); line-height: 1;
+  display: flex; align-items: baseline; justify-content: center; gap: 4px;
+}
+.trust-item .num sup { font-size: 0.5em; color: var(--sage); font-weight: 500; }
+.trust-item .label {
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-50); font-weight: 500; margin-top: 12px;
+}
+
+/* ========== ABOUT ========== */
+.about { background: var(--paper); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 90px; align-items: center;
+}
+.about-visual { position: relative; }
+.about-visual .img-main {
+  border-radius: var(--radius-lg); overflow: hidden;
+  aspect-ratio: 4/5; box-shadow: var(--shadow-lg);
+}
+.about-visual .img-main img { width: 100%; height: 100%; object-fit: cover; }
+.about-visual .img-accent {
+  position: absolute; bottom: -36px; right: -36px;
+  width: 50%; aspect-ratio: 1; border-radius: var(--radius-lg);
+  overflow: hidden; border: 10px solid var(--paper);
+  box-shadow: var(--shadow-lg);
+}
+.about-visual .img-accent img { width: 100%; height: 100%; object-fit: cover; }
+.about-visual .badge {
+  position: absolute; top: 32px; left: -24px;
+  background: var(--sage); color: var(--cream);
+  padding: 18px 22px; border-radius: var(--radius);
+  font-family: 'Cormorant Garamond', serif;
+  box-shadow: var(--shadow-md);
+}
+.about-visual .badge strong { display: block; font-size: 2rem; font-weight: 600; line-height: 1; }
+.about-visual .badge span { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; opacity: .85; }
+
+.about-text p { margin-bottom: 20px; color: var(--ink-70); font-size: 1.04rem; }
+.about-text p strong { color: var(--ink); font-weight: 600; }
+.about-signature {
+  margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line);
+  display: flex; align-items: center; gap: 16px;
+}
+.about-signature .sig-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 600; color: var(--ink);
+  font-style: italic;
+}
+.about-signature .sig-role {
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-50); font-weight: 500; margin-top: 2px;
+}
+
+/* ========== SERVICES ========== */
+.services { background: var(--cream-soft); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+}
+.service-card {
+  position: relative; padding: 40px 32px 36px;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  transition: all .5s var(--ease);
+  overflow: hidden; isolation: isolate;
+  display: flex; flex-direction: column;
+}
+.service-card::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: var(--black); opacity: 0; transition: opacity .5s var(--ease);
+}
+.service-card:hover { transform: translateY(-8px); border-color: var(--black); box-shadow: var(--shadow-lg); }
+.service-card:hover::before { opacity: 1; }
+.service-card:hover .service-icon { background: rgba(167,179,150,.12); color: var(--sage-light); border-color: rgba(167,179,150,.3); }
+.service-card:hover h3, .service-card:hover p, .service-card:hover .service-link { color: var(--cream); }
+.service-card:hover .service-link { border-top-color: rgba(239,230,213,.15); }
+.service-card:hover .service-link i { color: var(--sage-light); }
+
+.service-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: var(--cream-deep); color: var(--sage-deep);
+  border: 1px solid rgba(122,137,104,.2);
+  display: grid; place-items: center; font-size: 20px;
+  margin-bottom: 26px; transition: all .5s var(--ease);
+}
+.service-card h3 {
+  font-size: 1.7rem; font-weight: 600; margin-bottom: 12px;
+  transition: color .4s var(--ease);
+}
+.service-card .specs {
+  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--sage-deep); font-weight: 600; font-family: 'Inter', sans-serif;
+  margin-bottom: 14px;
+  transition: color .4s var(--ease);
+}
+.service-card:hover .specs { color: var(--gold-soft); }
+.service-card p {
+  font-size: 0.95rem; color: var(--ink-70); line-height: 1.7;
+  margin-bottom: 28px; transition: color .4s var(--ease);
+  flex: 1;
+}
+.service-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 20px; border-top: 1px solid var(--line);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink);
+  transition: all .4s var(--ease);
+}
+.service-link i { transition: transform .4s var(--ease), color .4s var(--ease); color: var(--sage-deep); }
+.service-card:hover .service-link i { transform: translateX(4px); }
+
+/* ========== FEATURE BAND — CENTRO DA MULHER ========== */
+.feature-band {
+  background: var(--black); color: var(--cream);
+  position: relative; overflow: hidden;
+}
+.feature-band::before {
+  content: ''; position: absolute; inset: 0; opacity: 0.35;
+  background:
+    radial-gradient(ellipse 50% 60% at 75% 40%, rgba(122,137,104,.6), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 25% 80%, rgba(201,169,97,.35), transparent 70%);
+  pointer-events: none;
+}
+.feature-band::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .05;
+  background-image: radial-gradient(rgba(239,230,213,.5) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.feature-wrap {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  padding: 120px 0;
+}
+.feature-wrap .section-eyebrow { color: var(--sage-light); }
+.feature-wrap h2 {
+  font-size: clamp(2.4rem, 4.6vw, 4rem); line-height: 1.05;
+  margin-bottom: 28px; font-weight: 500;
+}
+.feature-wrap h2 em { font-style: italic; color: var(--sage-light); font-weight: 400; }
+.feature-wrap p { color: rgba(239,230,213,.78); line-height: 1.8; font-size: 1.04rem; margin-bottom: 20px; }
+.feature-list {
+  list-style: none; margin: 36px 0; display: grid; gap: 14px;
+}
+.feature-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 0; border-top: 1px solid rgba(239,230,213,.1);
+  font-size: 15px;
+}
+.feature-list li:last-child { border-bottom: 1px solid rgba(239,230,213,.1); }
+.feature-list i { color: var(--sage-light); font-size: 13px; margin-top: 5px; flex-shrink: 0; }
+.feature-list strong { color: var(--cream); font-weight: 600; display: block; margin-bottom: 2px; font-size: 15px; }
+.feature-list span { color: rgba(239,230,213,.6); font-size: 13px; display: block; }
+
+.feature-visual { position: relative; aspect-ratio: 4/5; }
+.feature-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+}
+.feature-visual .stamp {
+  position: absolute; top: 30px; right: -30px;
+  width: 130px; height: 130px; border-radius: 50%;
+  background: var(--sage); color: var(--cream);
+  display: grid; place-items: center; text-align: center;
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 0.9rem; line-height: 1.2; padding: 16px;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-8deg);
+}
+.feature-visual .stamp strong { display: block; font-size: 1.6rem; font-weight: 600; margin-bottom: 4px; font-style: normal; }
+
+/* ========== WHY ========== */
+.why { background: var(--paper); }
+.why-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+}
+.why-item {
+  padding: 40px 32px; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  background: var(--cream-soft); transition: all .4s var(--ease);
+}
+.why-item:hover { transform: translateY(-6px); border-color: var(--sage); box-shadow: var(--shadow-md); }
+.why-item .num {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 2.6rem; font-weight: 500; color: var(--sage); line-height: 1;
+  margin-bottom: 24px;
+}
+.why-item h4 { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.01em; }
+.why-item p { font-size: 0.93rem; color: var(--ink-70); line-height: 1.7; }
+
+/* ========== TEAM ========== */
+.team { background: var(--cream-soft); }
+.team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+}
+.doctor-card {
+  background: var(--paper); border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-sm);
+  transition: all .5s var(--ease); border: 1px solid var(--line);
+  display: flex; flex-direction: column;
+}
+.doctor-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--sage); }
+.doctor-photo {
+  aspect-ratio: 4/5; overflow: hidden;
+  background: linear-gradient(135deg, #3A3428, #17140F);
+  position: relative;
+}
+.doctor-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.doctor-card:hover .doctor-photo img { transform: scale(1.04); }
+.doctor-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(23,20,15,.35), transparent 45%);
+}
+.doctor-photo .tag-unimed {
+  position: absolute; top: 16px; right: 16px; z-index: 2;
+  background: #00995D; color: #FFF;
+  font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600;
+  padding: 6px 12px; border-radius: 999px; letter-spacing: 0.06em;
+  box-shadow: 0 4px 14px rgba(0,153,93,.3);
+}
+.doctor-info { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
+.doctor-info .role {
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sage-deep); font-weight: 600; margin-bottom: 10px;
+}
+.doctor-info h3 { font-size: 1.55rem; font-weight: 600; margin-bottom: 8px; line-height: 1.15; }
+.doctor-info .credentials { font-size: 12.5px; color: var(--ink-50); margin-bottom: 16px; font-family: 'Inter', sans-serif; letter-spacing: 0.03em; }
+.doctor-info .bio { font-size: 0.92rem; color: var(--ink-70); line-height: 1.65; flex: 1; }
+.doctor-cta {
+  margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line);
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink); transition: all .3s;
+}
+.doctor-cta i { color: #25D366; font-size: 16px; }
+.doctor-cta:hover { color: var(--sage-deep); }
+
+/* ========== CONVÊNIOS ========== */
+.insurance { background: var(--paper); }
+.insurance-wrap {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.ins-card {
+  padding: 44px 40px; border-radius: var(--radius-lg);
+  border: 1px solid var(--line); background: var(--cream-soft);
+  position: relative; overflow: hidden;
+  transition: all .4s var(--ease);
+}
+.ins-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.ins-card .ic {
+  width: 52px; height: 52px; border-radius: 12px;
+  display: grid; place-items: center; font-size: 22px; margin-bottom: 22px;
+}
+.ins-card.particular .ic { background: var(--black); color: var(--sage-light); }
+.ins-card.unimed .ic { background: #00995D; color: #FFF; }
+.ins-card h3 { font-size: 1.7rem; font-weight: 600; margin-bottom: 8px; }
+.ins-card .sub {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--sage-deep); font-family: 'Inter', sans-serif; font-weight: 600; margin-bottom: 16px;
+}
+.ins-card p { color: var(--ink-70); line-height: 1.7; margin-bottom: 22px; font-size: 0.96rem; }
+
+/* ========== GALLERY ========== */
+.gallery { background: var(--cream-soft); }
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px; gap: 14px;
+}
+.gallery-item {
+  border-radius: var(--radius); overflow: hidden; position: relative;
+  cursor: pointer; background: var(--cream-deep);
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
+.gallery-item::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(23,20,15,.6), transparent 55%);
+  opacity: 0; transition: opacity .4s;
+}
+.gallery-item .label {
+  position: absolute; bottom: 18px; left: 20px; color: var(--cream);
+  font-size: 13px; font-weight: 500; letter-spacing: 0.03em;
+  opacity: 0; transform: translateY(8px);
+  transition: all .4s var(--ease); z-index: 2;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item:hover::after { opacity: 1; }
+.gallery-item:hover .label { opacity: 1; transform: translateY(0); }
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+
+/* ========== TESTIMONIALS ========== */
+.testimonials { background: var(--black); color: var(--cream); }
+.testimonials .section-eyebrow { color: var(--sage-light); }
+.testimonials .section-title em { color: var(--sage-light); }
+.tcards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.tcard {
+  background: rgba(239,230,213,.04); padding: 36px 32px;
+  border-radius: var(--radius-lg); border: 1px solid rgba(239,230,213,.08);
+  display: flex; flex-direction: column;
+  transition: all .4s var(--ease);
+}
+.tcard:hover { transform: translateY(-4px); background: rgba(239,230,213,.06); border-color: rgba(239,230,213,.18); }
+.tcard .stars { color: var(--gold); margin-bottom: 20px; font-size: 13px; letter-spacing: 3px; }
+.tcard blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; line-height: 1.5; color: var(--cream);
+  font-weight: 400; margin-bottom: 30px; flex: 1;
+  font-style: italic;
+}
+.tcard .author { display: flex; align-items: center; gap: 14px; padding-top: 22px; border-top: 1px solid rgba(239,230,213,.1); }
+.tcard .avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--sage); color: var(--cream);
+  display: grid; place-items: center;
+  font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 18px;
+}
+.tcard .who strong { display: block; font-size: 14px; font-weight: 600; color: var(--cream); }
+.tcard .who span { font-size: 12px; color: rgba(239,230,213,.5); }
+
+/* ========== FAQ ========== */
+.faq { background: var(--paper); }
+.faq-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+.faq-list { border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q {
+  width: 100%; padding: 28px 0; text-align: left;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 500; color: var(--ink);
+  transition: color .3s;
+}
+.faq-q:hover { color: var(--sage-deep); }
+.faq-q i {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--cream-deep); color: var(--sage-deep);
+  display: grid; place-items: center; font-size: 12px;
+  transition: all .4s var(--ease); flex-shrink: 0;
+}
+.faq-item.open .faq-q i { background: var(--black); color: var(--sage-light); transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .5s var(--ease); }
+.faq-a-inner { padding: 0 0 30px; color: var(--ink-70); font-size: 0.98rem; line-height: 1.8; max-width: 94%; }
+.faq-item.open .faq-a { max-height: 500px; }
+
+/* ========== CONTACT ========== */
+.contact {
+  background: var(--black); color: var(--cream);
+  position: relative; overflow: hidden;
+}
+.contact::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(122,137,104,.14), transparent 65%),
+    radial-gradient(ellipse 50% 40% at 15% 80%, rgba(201,169,97,.1), transparent 65%);
+  pointer-events: none;
+}
+.contact .section-eyebrow { color: var(--sage-light); }
+.contact .section-title em { color: var(--sage-light); }
+.contact .section-lead { color: rgba(239,230,213,.72); }
+.contact-inner { position: relative; z-index: 2; }
+
+.contact-cards {
+  display: grid; grid-template-columns: 2fr 1.1fr; gap: 24px; margin-bottom: 32px;
+}
+.wa-hero {
+  padding: 56px 48px; border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #1F3B2C, #0E2118);
+  border: 1px solid rgba(167,179,150,.2);
+  position: relative; overflow: hidden;
+}
+.wa-hero::before {
+  content: ''; position: absolute; top: -40%; right: -10%;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,211,102,.25), transparent 65%);
+}
+.wa-hero .ic-wa {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: #25D366; color: #FFF;
+  display: grid; place-items: center; font-size: 30px;
+  margin-bottom: 24px; box-shadow: 0 10px 30px rgba(37,211,102,.35);
+}
+.wa-hero h3 { font-size: 2.2rem; color: var(--cream); margin-bottom: 12px; }
+.wa-hero p { color: rgba(239,230,213,.72); margin-bottom: 28px; font-size: 1rem; max-width: 440px; line-height: 1.7; }
+.wa-hero .phone {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; color: var(--cream); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-bottom: 28px;
+}
+.wa-hero .phone i { color: #25D366; font-size: 1.8rem; }
+
+.info-cards { display: grid; gap: 16px; }
+.info-card {
+  padding: 26px 28px; border-radius: var(--radius);
+  background: rgba(239,230,213,.04); border: 1px solid rgba(239,230,213,.08);
+  transition: all .3s;
+}
+.info-card:hover { background: rgba(239,230,213,.07); border-color: rgba(239,230,213,.15); }
+.info-card .label { font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage-light); font-weight: 600; margin-bottom: 10px; }
+.info-card h4 { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; color: var(--cream); margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+.info-card h4 i { color: var(--sage-light); font-size: 15px; }
+.info-card p { color: rgba(239,230,213,.65); font-size: 13.5px; line-height: 1.55; }
+.info-card a:hover { color: var(--sage-light); }
+
+.map-wrap {
+  border-radius: var(--radius-lg); overflow: hidden;
+  aspect-ratio: 21/7; background: var(--black-80);
+  border: 1px solid rgba(239,230,213,.1);
+}
+.map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.25) contrast(1.05) invert(0.92) hue-rotate(180deg); }
+
+/* ========== FOOTER ========== */
+.footer { background: #0B0906; color: rgba(239,230,213,.6); padding: 80px 0 32px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer .logo { color: var(--cream); margin-bottom: 24px; }
+.footer p.desc { font-size: 0.93rem; line-height: 1.8; max-width: 360px; }
+.footer h5 {
+  font-family: 'Inter', sans-serif; font-size: 11px;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--cream);
+  font-weight: 600; margin-bottom: 22px;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 11px; font-size: 0.93rem; }
+.footer ul a { transition: color .3s; }
+.footer ul a:hover { color: var(--sage-light); }
+.socials { display: flex; gap: 10px; margin-top: 22px; }
+.socials a {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid rgba(239,230,213,.15);
+  display: grid; place-items: center; color: var(--cream);
+  transition: all .3s var(--ease); font-size: 15px;
+}
+.socials a:hover { background: var(--sage); color: var(--cream); border-color: var(--sage); transform: translateY(-3px); }
+.footer-bottom {
+  border-top: 1px solid rgba(239,230,213,.08); padding-top: 28px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+  font-size: 12px; color: rgba(239,230,213,.4);
+}
+
+/* ========== WHATSAPP FLOATING ========== */
+.wa-float {
+  position: fixed; bottom: 24px; right: 24px; z-index: 90;
+  width: 62px; height: 62px; border-radius: 50%;
+  background: #25D366; color: #FFF; display: grid; place-items: center;
+  font-size: 28px; box-shadow: 0 12px 32px rgba(37,211,102,.4);
+  transition: transform .35s var(--ease);
+}
+.wa-float::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: #25D366; z-index: -1;
+  animation: pulse 2.4s ease-out infinite;
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float .wa-tooltip {
+  position: absolute; right: calc(100% + 14px); top: 50%; transform: translateY(-50%);
+  background: var(--black); color: var(--cream);
+  padding: 11px 18px; border-radius: 10px;
+  font-size: 13px; font-weight: 500; white-space: nowrap;
+  box-shadow: var(--shadow-md); border: 1px solid rgba(239,230,213,.1);
+  opacity: 0; pointer-events: none; transition: all .3s var(--ease);
+}
+.wa-float .wa-tooltip::after {
+  content: ''; position: absolute; right: -5px; top: 50%; transform: translateY(-50%) rotate(45deg);
+  width: 10px; height: 10px; background: var(--black);
+  border-right: 1px solid rgba(239,230,213,.1); border-top: 1px solid rgba(239,230,213,.1);
+}
+.wa-float:hover .wa-tooltip { opacity: 1; transform: translateY(-50%) translateX(-4px); }
+@keyframes pulse { 0% { opacity: .5; transform: scale(1); } 100% { opacity: 0; transform: scale(1.7); } }
+
+/* ========== REVEAL ========== */
+.reveal { opacity: 0; transform: translateY(30px); transition: all .9s var(--ease); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: .08s; }
+.reveal.d2 { transition-delay: .16s; }
+.reveal.d3 { transition-delay: .24s; }
+.reveal.d4 { transition-delay: .32s; }
+.reveal.d5 { transition-delay: .40s; }
+
+/* ========== MOBILE MENU ========== */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--black); color: var(--cream);
+  padding: 90px 32px 32px;
+  transform: translateX(100%); transition: transform .4s var(--ease);
+  display: flex; flex-direction: column;
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu .close { position: absolute; top: 22px; right: 22px; width: 44px; height: 44px; color: var(--cream); font-size: 24px; }
+.mobile-menu ul { list-style: none; margin-bottom: auto; }
+.mobile-menu ul li { border-bottom: 1px solid rgba(239,230,213,.1); }
+.mobile-menu ul a {
+  display: block; padding: 22px 0;
+  font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 500;
+}
+.mobile-menu .btn { margin-top: 20px; justify-content: center; }
+
+/* ========== RESPONSIVE ========== */
+
+/* --- TABLET (≤1024px) --- */
+@media (max-width: 1024px) {
+  .section { padding: 90px 0; }
+  .feature-wrap { padding: 90px 0; }
+
+  /* Hero — coluna única, visual centralizado */
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 130px 0 90px; }
+  .hero-visual { width: 100%; max-width: 520px; margin: 0 auto; aspect-ratio: 3/2; }
+  .hero-sub { max-width: 100%; }
+
+  /* About — oculta acento que causava clipping, corrige badge */
+  .about-grid { grid-template-columns: 1fr; gap: 56px; }
+  .about-visual .img-accent { display: none; }
+  .about-visual .badge { left: 0; top: 24px; }
+
+  /* Grids de 2 colunas */
+  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 44px 20px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .tcards { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .insurance-wrap { grid-template-columns: 1fr; }
+
+  /* Feature band (Centro da Mulher) */
+  .feature-wrap { grid-template-columns: 1fr; gap: 52px; }
+  .feature-visual { width: 100%; max-width: 520px; margin: 0 auto; }
+  .feature-visual .stamp { right: 12px; top: 20px; }
+
+  /* FAQ e Contato */
+  .faq-wrap { grid-template-columns: 1fr; gap: 52px; }
+  .contact-cards { grid-template-columns: 1fr; gap: 20px; }
+
+  /* Galeria */
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 200px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  /* Mapa menos largo */
+  .map-wrap { aspect-ratio: 16/7; }
+}
+
+/* --- MOBILE (≤720px) --- */
+@media (max-width: 720px) {
+  .container { padding: 0 18px; }
+  .section { padding: 64px 0; }
+  .feature-wrap { padding: 64px 0; }
+  .section-head { margin-bottom: 44px; }
+
+  /* Header */
+  .header { padding: 16px 0; }
+  .nav-links { display: none; }
+  .burger { display: grid; }
+  .nav-cta .btn { display: none; }
+  .logo-type .tag { display: none; }
+
+  /* Hero */
+  .hero-inner { padding: 100px 0 64px; gap: 36px; }
+  .hero h1 { font-size: clamp(2rem, 8.5vw, 2.7rem); }
+  .hero-sub { font-size: 0.97rem; margin-bottom: 28px; }
+  .hero-eyebrow { font-size: 10px; padding: 7px 14px; margin-bottom: 20px; }
+  .hero-specialties { gap: 8px 14px; font-size: 12px; margin-bottom: 28px; }
+  .hero-actions { flex-direction: column; gap: 12px; }
+  .hero-actions .btn { width: 100%; justify-content: center; font-size: 14px; padding: 14px 20px; }
+  .hero-visual { max-width: 100%; aspect-ratio: 4/3; }
+  .hero-visual .plate { padding: 14px 16px; }
+  .hero-visual .plate h3 { font-size: 1.1rem; }
+  .hero-scroll { display: none; }
+
+  /* Marquee */
+  .marquee { font-size: 1.1rem; gap: 40px; }
+
+  /* Trust */
+  .trust { padding: 48px 0; }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 12px; }
+  .trust-item .num { font-size: 2.4rem; }
+
+  /* About */
+  .about-grid { gap: 44px; }
+  .about-visual .badge { left: 14px; top: 14px; }
+  .about-visual .badge strong { font-size: 1.6rem; }
+
+  /* Services */
+  .services-grid { grid-template-columns: 1fr; gap: 14px; }
+  .service-card { padding: 30px 22px 26px; }
+
+  /* Feature band */
+  .feature-visual { max-width: 100%; }
+  .feature-visual img { max-height: 420px; }
+  .feature-visual .stamp { width: 100px; height: 100px; font-size: 0.76rem; top: 14px; right: 14px; transform: rotate(-6deg); }
+  .feature-visual .stamp strong { font-size: 1.25rem; }
+
+  /* Why */
+  .why-grid { grid-template-columns: 1fr; gap: 14px; }
+  .why-item { padding: 28px 22px; }
+
+  /* Team */
+  .team-grid { grid-template-columns: 1fr; gap: 18px; }
+  .tcards { grid-template-columns: 1fr; }
+
+  /* Insurance */
+  .ins-card { padding: 32px 22px; }
+
+  /* Gallery */
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 155px; gap: 8px; }
+  .gallery-item.wide { grid-column: span 2; }
+  .gallery-item.tall { grid-row: span 1; }
+
+  /* Contact */
+  .wa-hero { padding: 36px 22px; }
+  .wa-hero h3 { font-size: 1.65rem; }
+  .wa-hero p { font-size: 0.95rem; margin-bottom: 20px; }
+  .wa-hero .phone { font-size: 1.45rem; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .wa-hero .ic-wa { width: 52px; height: 52px; font-size: 24px; margin-bottom: 18px; }
+  .map-wrap { aspect-ratio: 4/3; }
+
+  /* Footer */
+  .footer { padding: 56px 0 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; margin-bottom: 40px; }
+  .footer p.desc { max-width: 100%; }
+
+  /* WhatsApp float */
+  .wa-float { width: 54px; height: 54px; font-size: 22px; bottom: 14px; right: 14px; }
+  .wa-float .wa-tooltip { display: none; }
+}
+
+/* --- PEQUENOS (≤420px) --- */
+@media (max-width: 420px) {
+  .container { padding: 0 14px; }
+  .section { padding: 52px 0; }
+  .feature-wrap { padding: 52px 0; }
+  .section-head { margin-bottom: 36px; }
+
+  .hero-inner { padding: 88px 0 52px; }
+  .hero h1 { font-size: clamp(1.85rem, 9.5vw, 2.2rem); line-height: 1.15; }
+  .hero-eyebrow { display: none; }
+  .hero-specialties { display: none; }
+  .hero-visual { aspect-ratio: 1; }
+
+  .trust-item .num { font-size: 2rem; }
+  .trust-item .label { font-size: 11px; letter-spacing: 0.1em; }
+
+  .service-card { padding: 26px 18px 22px; }
+  .service-card h3 { font-size: 1.5rem; }
+
+  .ins-card { padding: 26px 18px; }
+  .ins-card h3 { font-size: 1.5rem; }
+
+  .gallery-grid { grid-auto-rows: 130px; gap: 6px; }
+
+  .wa-hero { padding: 28px 18px; }
+  .wa-hero .phone { font-size: 1.2rem; }
+
+  .footer-grid { gap: 26px; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+  .mobile-menu ul a { font-size: 1.5rem; padding: 18px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#top" class="logo" aria-label="Éfrata — Centro Clínico Integrado">
+        <svg class="logo-sym" viewBox="0 0 60 88" fill="none" aria-hidden="true">
+          <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="30" y1="85" x2="30" y2="22"/>
+            <path d="M30 22 C25 16 25 10 30 4 C35 10 35 16 30 22" fill="currentColor"/>
+            <path d="M30 36 C20 30 10 34 6 44 C16 47 25 45 30 36 Z" fill="currentColor"/>
+            <path d="M30 36 C40 30 50 34 54 44 C44 47 35 45 30 36 Z" fill="currentColor"/>
+            <path d="M30 58 C22 53 13 56 9 66 C19 69 27 67 30 58 Z" fill="currentColor"/>
+            <path d="M30 58 C38 53 47 56 51 66 C41 69 33 67 30 58 Z" fill="currentColor"/>
+          </g>
+        </svg>
+        <span class="logo-type">
+          <span class="name">ÉFRATA</span>
+          <span class="tag">Centro Clínico Integrado</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#mulher">Centro da Mulher</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#convenios">Convênios</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-wa" href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20%C3%89frata." target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i>Agendar
+        </a>
+        <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="close" id="closeMenu" aria-label="Fechar menu"><i class="fas fa-xmark"></i></button>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#mulher">Centro da Mulher</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#convenios">Convênios</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a class="btn btn-wa" href="https://wa.me/5569992612884" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>Agendar no WhatsApp
+  </a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div>
+      <span class="hero-eyebrow reveal">Alta Floresta D'Oeste · Rondônia</span>
+      <h1 class="reveal d1">Cuidando de <em>todas as fases</em><br/>da sua vida.</h1>
+      <p class="hero-sub reveal d2">
+        Um centro clínico integrado que reúne especialistas em odontologia, saúde da mulher,
+        pediatria, gastroenterologia e medicina fetal — sob o mesmo teto, com o acolhimento
+        que a sua família merece.
+      </p>
+      <div class="hero-specialties reveal d3">
+        <span><i class="fas fa-circle"></i>Odontologia</span>
+        <span><i class="fas fa-circle"></i>Ginecologia &amp; Obstetrícia</span>
+        <span><i class="fas fa-circle"></i>Pediatria</span>
+        <span><i class="fas fa-circle"></i>Gastroenterologia</span>
+        <span><i class="fas fa-circle"></i>Medicina Fetal</span>
+      </div>
+      <div class="hero-actions reveal d4">
+        <a class="btn btn-wa" href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20%C3%89frata." target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i>Agende sua consulta
+        </a>
+        <a class="btn btn-ghost-dark" href="#especialidades">
+          Conhecer especialidades<i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <img src="images/fachada.jpg" alt="Fachada da Éfrata Centro Clínico Integrado em Alta Floresta D'Oeste">
+      <div class="plate">
+        <h3>Éfrata — Centro Clínico Integrado</h3>
+        <p>Inaugurado em Alta Floresta D'Oeste</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">Role para descobrir</div>
+</section>
+
+<!-- ============ TAGLINE STRIP ============ -->
+<div class="tagline-strip" aria-hidden="true">
+  <div class="marquee">
+    <span>Cuidando de todas as fases da vida</span>
+    <span>Acolhimento humano</span>
+    <span>Tecnologia &amp; precisão</span>
+    <span>Atendimento multiespecialidades</span>
+    <span>Particular &amp; Unimed</span>
+    <span>Cuidando de todas as fases da vida</span>
+    <span>Acolhimento humano</span>
+    <span>Tecnologia &amp; precisão</span>
+    <span>Atendimento multiespecialidades</span>
+    <span>Particular &amp; Unimed</span>
+  </div>
+</div>
+
+<!-- ============ TRUST BAR ============ -->
+<section class="trust" aria-label="Números da clínica">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <div class="num">6<sup>+</sup></div>
+        <div class="label">Especialistas</div>
+      </div>
+      <div class="trust-item reveal d1">
+        <div class="num">18<sup>+</sup></div>
+        <div class="label">Anos de trajetória</div>
+      </div>
+      <div class="trust-item reveal d2">
+        <div class="num">5<sup>★</sup></div>
+        <div class="label">Acolhimento humano</div>
+      </div>
+      <div class="trust-item reveal d3">
+        <div class="num">2<sup>×</sup></div>
+        <div class="label">Particular &amp; Unimed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="img-main">
+          <img src="images/fachada.jpg" alt="Fachada da Éfrata com totem e jardim de entrada" loading="lazy">
+        </div>
+        <div class="img-accent">
+          <img src="images/consultorio-odonto.svg" alt="Consultório odontológico com ripado de madeira e jardim vertical" loading="lazy">
+        </div>
+        <div class="badge">
+          <strong>+18</strong>
+          <span>anos cuidando da comunidade</span>
+        </div>
+      </div>
+      <div class="about-text reveal d1">
+        <span class="section-eyebrow">Nossa história</span>
+        <h2 class="section-title">Um espaço feito para <em>cuidar de gente</em>.</h2>
+        <p>
+          A <strong>Éfrata</strong> nasceu da união entre experiência clínica e atendimento humanizado.
+          Reunimos, em um só endereço, profissionais dedicados a cada etapa da vida — do primeiro sorriso
+          ao planejamento familiar, da gestação à infância, da saúde preventiva ao bem-estar integral.
+        </p>
+        <p>
+          Cada consultório, cada detalhe do ambiente, cada recepção foi pensado para oferecer
+          <strong>conforto, privacidade e excelência técnica</strong>. Acreditamos que saúde é construída no tempo,
+          na escuta e na confiança — e é exatamente isso que entregamos, consulta após consulta,
+          geração após geração.
+        </p>
+        <p>
+          Somos uma clínica de Alta Floresta D'Oeste, feita para a nossa comunidade — com o padrão
+          e o rigor que você esperaria das melhores clínicas do país.
+        </p>
+        <div class="about-signature">
+          <svg class="logo-sym" style="width:36px;height:52px;color:var(--sage-deep)" viewBox="0 0 60 88" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="30" y1="85" x2="30" y2="22"/>
+              <path d="M30 22 C25 16 25 10 30 4 C35 10 35 16 30 22" fill="currentColor"/>
+              <path d="M30 36 C20 30 10 34 6 44 C16 47 25 45 30 36 Z" fill="currentColor"/>
+              <path d="M30 36 C40 30 50 34 54 44 C44 47 35 45 30 36 Z" fill="currentColor"/>
+              <path d="M30 58 C22 53 13 56 9 66 C19 69 27 67 30 58 Z" fill="currentColor"/>
+              <path d="M30 58 C38 53 47 56 51 66 C41 69 33 67 30 58 Z" fill="currentColor"/>
+            </g>
+          </svg>
+          <div>
+            <div class="sig-name">Éfrata — Centro Clínico Integrado</div>
+            <div class="sig-role">Alta Floresta D'Oeste · Rondônia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="especialidades">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-eyebrow">Especialidades</span>
+      <h2 class="section-title">Cuidado integral, em <em>cada fase</em>.</h2>
+      <p class="section-lead">
+        Seis especialidades que se conectam para oferecer à sua família um cuidado completo,
+        continuado e humano — sem você precisar sair da cidade.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-tooth"></i></div>
+        <h3>Odontologia</h3>
+        <div class="specs">Clínica geral · Estética · Prevenção</div>
+        <p>Saúde bucal para toda a família — limpeza, restaurações, clareamento e tratamentos personalizados, em um consultório equipado com o que há de mais moderno.</p>
+        <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Odontologia%20na%20%C3%89frata." target="_blank" rel="noopener" class="service-link">
+          Agendar Odontologia<i class="fas fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="service-card reveal d1">
+        <div class="service-icon"><i class="fas fa-venus"></i></div>
+        <h3>Ginecologia</h3>
+        <div class="specs">Prevenção · Implantes hormonais · Estética íntima</div>
+        <p>Consultas preventivas, planejamento familiar, sexologia, colposcopia e cuidado em todas as fases da vida da mulher — do início ao climatério.</p>
+        <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Ginecologia%20na%20%C3%89frata." target="_blank" rel="noopener" class="service-link">
+          Agendar Ginecologia<i class="fas fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="service-card reveal d2">
+        <div class="service-icon"><i class="fas fa-baby"></i></div>
+        <h3>Obstetrícia</h3>
+        <div class="specs">Pré-natal · USG Obstétrica · Medicina Fetal</div>
+        <p>Acompanhamento gestacional humanizado com ultrassonografia obstétrica e medicina fetal — da primeira consulta ao nascimento do bebê.</p>
+        <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Obstetr%C3%ADcia%20na%20%C3%89frata." target="_blank" rel="noopener" class="service-link">
+          Agendar Obstetrícia<i class="fas fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-child"></i></div>
+        <h3>Pediatria</h3>
+        <div class="specs">Puericultura · Consulta de rotina · Gastropediatria</div>
+        <p>Do recém-nascido à adolescência — acompanhamento de crescimento, desenvolvimento e saúde digestiva com escuta atenta aos pais e aos pequenos.</p>
+        <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Pediatria%20na%20%C3%89frata." target="_blank" rel="noopener" class="service-link">
+          Agendar Pediatria<i class="fas fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="service-card reveal d1">
+        <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+        <h3>Gastroenterologia</h3>
+        <div class="specs">Adultos &amp; crianças · Diagnóstico · Tratamento</div>
+        <p>Cuidado completo do sistema digestivo em todas as idades — com atendimento para adultos e gastropediatria para crianças, sob o mesmo teto.</p>
+        <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Gastroenterologia%20na%20%C3%89frata." target="_blank" rel="noopener" class="service-link">
+          Agendar Gastroenterologia<i class="fas fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="service-card reveal d2">
+        <div class="service-icon"><i class="fas fa-heart-pulse"></i></div>
+        <h3>Medicina Fetal</h3>
+        <div class="specs">USG obstétrica · Morfológico · Alta resolução</div>
+        <p>Ultrassonografia obstétrica especializada com profissional altamente qualificado — para acompanhar o desenvolvimento do bebê com segurança e precisão.</p>
+        <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20exame%20de%20Medicina%20Fetal%20na%20%C3%89frata." target="_blank" rel="noopener" class="service-link">
+          Agendar Medicina Fetal<i class="fas fa-arrow-right"></i>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE — CENTRO DA MULHER ============ -->
+<section class="feature-band" id="mulher">
+  <div class="container">
+    <div class="feature-wrap">
+      <div class="reveal">
+        <span class="section-eyebrow">Centro da Mulher</span>
+        <h2>Saúde feminina <em>completa</em>, em todas as fases.</h2>
+        <p>
+          Um núcleo dedicado à mulher — da adolescência à maturidade, passando pela gestação,
+          sexualidade, prevenção oncológica e estética íntima. Aqui você encontra uma equipe
+          feminina especializada e tecnologia de ponta para cuidar do que é mais importante: você.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <i class="fas fa-check"></i>
+            <div>
+              <strong>Pré-natal humanizado &amp; Medicina Fetal</strong>
+              <span>Acompanhamento gestacional com USG de alta resolução</span>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-check"></i>
+            <div>
+              <strong>Implantes hormonais &amp; Estética Íntima</strong>
+              <span>Tratamentos modernos de bem-estar e qualidade de vida</span>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-check"></i>
+            <div>
+              <strong>Sexologia &amp; Colposcopia</strong>
+              <span>Saúde sexual e prevenção oncológica com profissional especializada</span>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-check"></i>
+            <div>
+              <strong>Ginecologia preventiva</strong>
+              <span>Consultas, exames de rotina e planejamento familiar</span>
+            </div>
+          </li>
+        </ul>
+        <a class="btn btn-wa" href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20no%20Centro%20da%20Mulher%20da%20%C3%89frata." target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i>Agendar no Centro da Mulher
+        </a>
+      </div>
+      <div class="feature-visual reveal d1">
+        <img src="images/equipe/dra-ednea.jpg" alt="Dra. Ednea Ribeiro de Oliveira — Ginecologista e Obstetra da Éfrata">
+        <div class="stamp">
+          <strong>3</strong>
+          especialistas em<br/>saúde da mulher
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="section why">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-eyebrow">Por que a Éfrata</span>
+      <h2 class="section-title">Um padrão de cuidado <em>feito para durar</em>.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="num">01</div>
+        <h4>Seis especialidades integradas</h4>
+        <p>Odontologia, saúde da mulher, pediatria, gastroenterologia e medicina fetal no mesmo endereço. Menos deslocamento, mais continuidade.</p>
+      </div>
+      <div class="why-item reveal d1">
+        <div class="num">02</div>
+        <h4>Atendimento humanizado</h4>
+        <p>Escutamos antes de prescrever. Cada paciente é acolhido pelo nome, pela história e pelo tempo que precisar.</p>
+      </div>
+      <div class="why-item reveal d2">
+        <div class="num">03</div>
+        <h4>Estrutura premium</h4>
+        <p>Consultórios com design biofílico — madeira natural, jardim vertical, iluminação cuidada e equipamentos de última geração.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="num">04</div>
+        <h4>Particular &amp; Unimed</h4>
+        <p>Flexibilidade de atendimento para que você escolha o formato que funciona melhor para a sua rotina e o seu orçamento.</p>
+      </div>
+      <div class="why-item reveal d1">
+        <div class="num">05</div>
+        <h4>Referência local</h4>
+        <p>Uma clínica de Alta Floresta D'Oeste, construída para a região — com o padrão das grandes capitais e o carinho da nossa cidade.</p>
+      </div>
+      <div class="why-item reveal d2">
+        <div class="num">06</div>
+        <h4>Cuidado continuado</h4>
+        <p>Acompanhamos você e sua família ao longo do tempo — porque saúde é construída dia após dia, não em uma consulta isolada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="section team" id="equipe">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-eyebrow">Nossa equipe</span>
+      <h2 class="section-title">Especialistas que <em>fazem a diferença</em>.</h2>
+      <p class="section-lead">
+        Seis profissionais dedicados, com formação sólida e o compromisso de oferecer
+        o melhor da medicina e da odontologia — com empatia, escuta e técnica.
+      </p>
+    </div>
+    <div class="team-grid">
+
+      <article class="doctor-card reveal">
+        <div class="doctor-photo">
+          <img src="images/equipe/dr-robson.jpg" alt="Dr. Robson Ribeiro de Oliveira — Cirurgião-dentista" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="role">Odontologia</div>
+          <h3>Dr. Robson José Ribeiro de Oliveira</h3>
+          <div class="credentials">Cirurgião-dentista · +18 anos de experiência</div>
+          <p class="bio">Atendimento humanizado, tratamentos personalizados e eficazes. Referência em odontologia em Alta Floresta D'Oeste, com foco no bem-estar e na individualidade de cada paciente.</p>
+          <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20consulta%20com%20o%20Dr.%20Robson." target="_blank" rel="noopener" class="doctor-cta">
+            <i class="fab fa-whatsapp"></i>Agendar consulta
+          </a>
+        </div>
+      </article>
+
+      <article class="doctor-card reveal d1">
+        <div class="doctor-photo">
+          <img src="images/equipe/dra-ednea.jpg" alt="Dra. Ednea Ribeiro de Oliveira — Ginecologista e Obstetra" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="role">Ginecologia · Obstetrícia</div>
+          <h3>Dra. Ednea Ribeiro de Oliveira</h3>
+          <div class="credentials">CRM 3497 · RQE 2027 · Implantes hormonais &amp; Estética íntima</div>
+          <p class="bio">Especialista em Ginecologia e Obstetrícia, com atuação dedicada em implantes hormonais e estética vaginal — cuidado integral da saúde feminina em todas as fases.</p>
+          <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20consulta%20com%20a%20Dra.%20Ednea." target="_blank" rel="noopener" class="doctor-cta">
+            <i class="fab fa-whatsapp"></i>Agendar consulta
+          </a>
+        </div>
+      </article>
+
+      <article class="doctor-card reveal d2">
+        <div class="doctor-photo">
+          <img src="images/equipe/dra-daniele.jpg" alt="Dra. Daniele Tirolli — Gastroenterologista" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="role">Gastroenterologia</div>
+          <h3>Dra. Daniele Tirolli</h3>
+          <div class="credentials">CRM 3831 · RQE 2420</div>
+          <p class="bio">Médica gastroenterologista com foco no cuidado completo do sistema digestivo — diagnóstico, tratamento e acompanhamento de condições gástricas e intestinais em adultos.</p>
+          <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20consulta%20com%20a%20Dra.%20Daniele." target="_blank" rel="noopener" class="doctor-cta">
+            <i class="fab fa-whatsapp"></i>Agendar consulta
+          </a>
+        </div>
+      </article>
+
+      <article class="doctor-card reveal">
+        <div class="doctor-photo">
+          <img src="images/equipe/dr-welliton.jpg" alt="Dr. Welliton Ribeiro — Pediatra e Gastropediatra" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="role">Pediatria · Gastropediatria</div>
+          <h3>Dr. Welliton Ribeiro</h3>
+          <div class="credentials">CRM 4151 · RQE 2289 / 2290</div>
+          <p class="bio">Pediatra e gastropediatra — acompanhamento completo do crescimento e desenvolvimento infantil, do recém-nascido à adolescência, incluindo cuidado da saúde digestiva.</p>
+          <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20consulta%20com%20o%20Dr.%20Welliton." target="_blank" rel="noopener" class="doctor-cta">
+            <i class="fab fa-whatsapp"></i>Agendar consulta
+          </a>
+        </div>
+      </article>
+
+      <article class="doctor-card reveal d1">
+        <div class="doctor-photo">
+          <img src="images/equipe/dr-hugo.jpg" alt="Dr. Hugo Acco Jaconi — Ultrassonografia Obstétrica e Medicina Fetal" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="role">USG Obstétrica · Medicina Fetal</div>
+          <h3>Dr. Hugo Acco Jaconi</h3>
+          <div class="credentials">CRM/RO 5309 · RQE 2654 / 2655</div>
+          <p class="bio">Profissional altamente qualificado em ultrassonografia obstétrica e medicina fetal. Diagnóstico de alta precisão para acompanhamento da gestação em todas as semanas.</p>
+          <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20com%20o%20Dr.%20Hugo%20(Medicina%20Fetal)." target="_blank" rel="noopener" class="doctor-cta">
+            <i class="fab fa-whatsapp"></i>Agendar consulta
+          </a>
+        </div>
+      </article>
+
+      <article class="doctor-card reveal d2">
+        <div class="doctor-photo">
+          <span class="tag-unimed"><i class="fas fa-shield-heart" style="margin-right:4px"></i>Unimed</span>
+          <img src="images/equipe/dra-ivanir.jpg" alt="Dra. Ivanir Karina — Ginecologista e Obstetra (Unimed)" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="role">Ginecologia · Obstetrícia</div>
+          <h3>Dra. Ivanir Karina</h3>
+          <div class="credentials">Sexologia &amp; Colposcopia · Atendimento Unimed</div>
+          <p class="bio">Especialista em Ginecologia e Obstetrícia, pós-graduada em Sexologia e Colposcopia. Atende exclusivamente pelo plano Unimed na Éfrata.</p>
+          <a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20consulta%20Unimed%20com%20a%20Dra.%20Ivanir%20Karina." target="_blank" rel="noopener" class="doctor-cta">
+            <i class="fab fa-whatsapp"></i>Agendar Unimed
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONVÊNIOS ============ -->
+<section class="section insurance" id="convenios">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-eyebrow">Atendimento</span>
+      <h2 class="section-title">Particular <em>e</em> Unimed.</h2>
+      <p class="section-lead">Flexibilidade para você escolher o formato que melhor se encaixa na sua rotina.</p>
+    </div>
+    <div class="insurance-wrap">
+
+      <div class="ins-card particular reveal">
+        <div class="ic"><i class="fas fa-hand-holding-medical"></i></div>
+        <h3>Atendimento Particular</h3>
+        <div class="sub">Todas as especialidades</div>
+        <p>Consultas e exames em todas as especialidades da clínica com agendamento flexível, valores transparentes informados previamente e a possibilidade de pagamento em cartão ou PIX.</p>
+        <a class="btn btn-dark" href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20particular%20na%20%C3%89frata." target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i>Consultar valores
+        </a>
+      </div>
+
+      <div class="ins-card unimed reveal d1">
+        <div class="ic"><i class="fas fa-shield-heart"></i></div>
+        <h3>Plano Unimed</h3>
+        <div class="sub">Ginecologia &amp; Obstetrícia</div>
+        <p>Atendimento pelo plano Unimed com a <strong>Dra. Ivanir Karina</strong> — especialista em Ginecologia, Obstetrícia, Sexologia e Colposcopia. Agende sua consulta diretamente pelo WhatsApp.</p>
+        <a class="btn btn-dark" href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20consulta%20Unimed%20com%20a%20Dra.%20Ivanir%20Karina." target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i>Agendar pela Unimed
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section gallery">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-eyebrow">@clinicaefrata</span>
+      <h2 class="section-title">Um olhar por dentro da <em>nossa clínica</em>.</h2>
+      <p class="section-lead">Acompanhe o dia a dia, dicas de saúde e os bastidores do cuidado no nosso Instagram.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item tall">
+        <img src="images/fachada.jpg" alt="Fachada da Éfrata" loading="lazy">
+        <span class="label">Nossa fachada</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/consultorio-odonto.svg" alt="Consultório odontológico" loading="lazy">
+        <span class="label">Consultório Odontológico</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/consultorio-pediatria.svg" alt="Consultório pediátrico" loading="lazy">
+        <span class="label">Consultório Pediátrico</span>
+      </div>
+      <div class="gallery-item wide">
+        <img src="images/equipe.svg" alt="Equipe da Éfrata" loading="lazy">
+        <span class="label">Nossa equipe</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/ambiente-01.svg" alt="Ambiente da clínica" loading="lazy">
+        <span class="label">Ambiente acolhedor</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/ambiente-02.svg" alt="Detalhes da clínica" loading="lazy">
+        <span class="label">Detalhes &amp; design</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/logo-totem.svg" alt="Totem com logo da Éfrata" loading="lazy">
+        <span class="label">Identidade visual</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-eyebrow">Depoimentos</span>
+      <h2 class="section-title">O que dizem <em>nossas famílias</em>.</h2>
+    </div>
+    <div class="tcards">
+      <div class="tcard reveal">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <blockquote>"Fui muito bem atendida no pré-natal. A equipe é atenciosa e explica cada etapa com paciência. Hoje levo o meu filho na pediatria da mesma clínica."</blockquote>
+        <div class="author">
+          <div class="avatar">M</div>
+          <div class="who"><strong>Marcela R.</strong><span>Paciente há 2 anos</span></div>
+        </div>
+      </div>
+      <div class="tcard reveal d1">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <blockquote>"Ambiente impecável, profissionais sérios e atendimento rápido. O consultório odontológico parece de uma grande capital — um lujo para a nossa cidade."</blockquote>
+        <div class="author">
+          <div class="avatar">J</div>
+          <div class="who"><strong>João P.</strong><span>Paciente de Odontologia</span></div>
+        </div>
+      </div>
+      <div class="tcard reveal d2">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <blockquote>"O pediatra é maravilhoso com a minha filha. Explica tudo, não apressa a consulta e nos deixa super tranquilos. O consultório infantil é lindo. Recomendo de olhos fechados."</blockquote>
+        <div class="author">
+          <div class="avatar">A</div>
+          <div class="who"><strong>Ana L.</strong><span>Mãe de paciente</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="reveal">
+        <span class="section-eyebrow">Dúvidas frequentes</span>
+        <h2 class="section-title">Tudo que você precisa saber <em>antes de agendar</em>.</h2>
+        <p class="section-lead">Não encontrou sua dúvida? Fale com nossa recepção pelo WhatsApp — respondemos em minutos.</p>
+        <a class="btn btn-wa" href="https://wa.me/5569992612884" target="_blank" rel="noopener" style="margin-top:28px">
+          <i class="fab fa-whatsapp"></i>Falar com a recepção
+        </a>
+      </div>
+      <div class="faq-list reveal d1">
+        <div class="faq-item">
+          <button class="faq-q">Como agendar uma consulta? <i class="fas fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">O agendamento é 100% pelo WhatsApp: <strong>(69) 99261-2884</strong>. Nossa recepção confirma o horário disponível com o especialista e envia o lembrete. Você também pode nos chamar pelo Instagram Direct (@clinicaefrata).</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Quais especialidades a Éfrata atende? <i class="fas fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Atendemos em seis áreas: <strong>Odontologia, Ginecologia, Obstetrícia, Pediatria, Gastroenterologia</strong> (adultos e crianças) e <strong>Medicina Fetal</strong> — todas em um só endereço.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">A clínica atende pelo plano Unimed? <i class="fas fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Sim. A <strong>Dra. Ivanir Karina</strong> (Ginecologia/Obstetrícia) atende exclusivamente pelo plano Unimed na Éfrata. Para as demais especialidades e profissionais, o atendimento é particular.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Realizam pré-natal completo? <i class="fas fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Sim — o pré-natal é humanizado, com consultas periódicas, <strong>ultrassonografia obstétrica e medicina fetal</strong> realizadas pelo Dr. Hugo Acco Jaconi, além do acompanhamento ginecológico/obstétrico com a Dra. Ednea ou a Dra. Ivanir Karina (Unimed).</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Posso levar meu bebê para a primeira consulta pediátrica? <i class="fas fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Sim! Realizamos consultas de puericultura desde os primeiros dias de vida com o <strong>Dr. Welliton Ribeiro</strong> (Pediatra e Gastropediatra). Leve a caderneta da criança e, se possível, relatórios da maternidade.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">A Éfrata faz implantes hormonais e estética íntima? <i class="fas fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Sim. A <strong>Dra. Ednea Ribeiro de Oliveira</strong> é especialista nesses procedimentos — oferecemos avaliação individualizada, indicação segura e acompanhamento completo.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Qual o endereço e horário de funcionamento? <i class="fas fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Estamos em <strong>Alta Floresta D'Oeste — RO</strong>. Consulte o endereço completo e horários de cada especialista pelo WhatsApp. Atendemos de segunda a sexta, com sábados disponíveis mediante agendamento prévio.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contato">
+  <div class="container contact-inner">
+    <div class="section-head center reveal">
+      <span class="section-eyebrow">Fale conosco</span>
+      <h2 class="section-title">Vamos <em>cuidar de você</em>?</h2>
+      <p class="section-lead">Todo o agendamento é feito pelo WhatsApp — simples, rápido e direto com a nossa recepção.</p>
+    </div>
+    <div class="contact-cards">
+      <div class="wa-hero reveal">
+        <div class="ic-wa"><i class="fab fa-whatsapp"></i></div>
+        <h3>Agende pelo WhatsApp</h3>
+        <p>Clique no botão abaixo e fale diretamente com a nossa recepção. Respondemos rapidamente e ajudamos você a escolher o melhor horário com o especialista certo.</p>
+        <div class="phone"><i class="fab fa-whatsapp"></i>+55 (69) 99261-2884</div>
+        <div>
+          <a class="btn btn-wa" href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20%C3%89frata." target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i>Conversar agora
+          </a>
+        </div>
+      </div>
+      <div class="info-cards reveal d1">
+        <div class="info-card">
+          <div class="label">Endereço</div>
+          <h4><i class="fas fa-location-dot"></i>Alta Floresta D'Oeste</h4>
+          <p>Rondônia — Brasil<br/><a href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Pode%20me%20enviar%20o%20endere%C3%A7o%20completo%20da%20%C3%89frata%3F" target="_blank" rel="noopener">Solicitar endereço completo</a></p>
+        </div>
+        <div class="info-card">
+          <div class="label">Horário</div>
+          <h4><i class="fas fa-clock"></i>Seg a Sex · 08h–18h</h4>
+          <p>Sábados mediante agendamento prévio.</p>
+        </div>
+        <div class="info-card">
+          <div class="label">Instagram</div>
+          <h4><i class="fab fa-instagram"></i>@clinicaefrata</h4>
+          <p><a href="https://www.instagram.com/clinicaefrata/" target="_blank" rel="noopener">Siga para novidades e dicas</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap reveal">
+      <iframe
+        src="https://www.google.com/maps?q=Alta+Floresta+D%27Oeste+RO&output=embed"
+        title="Mapa da Éfrata em Alta Floresta D'Oeste"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo">
+          <svg class="logo-sym" viewBox="0 0 60 88" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="30" y1="85" x2="30" y2="22"/>
+              <path d="M30 22 C25 16 25 10 30 4 C35 10 35 16 30 22" fill="currentColor"/>
+              <path d="M30 36 C20 30 10 34 6 44 C16 47 25 45 30 36 Z" fill="currentColor"/>
+              <path d="M30 36 C40 30 50 34 54 44 C44 47 35 45 30 36 Z" fill="currentColor"/>
+              <path d="M30 58 C22 53 13 56 9 66 C19 69 27 67 30 58 Z" fill="currentColor"/>
+              <path d="M30 58 C38 53 47 56 51 66 C41 69 33 67 30 58 Z" fill="currentColor"/>
+            </g>
+          </svg>
+          <span class="logo-type">
+            <span class="name">ÉFRATA</span>
+            <span class="tag">Centro Clínico Integrado</span>
+          </span>
+        </a>
+        <p class="desc">Cuidando de todas as fases da vida. Odontologia, Ginecologia, Obstetrícia, Pediatria, Gastroenterologia e Medicina Fetal em Alta Floresta D'Oeste.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/clinicaefrata/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5569992612884" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#sobre">Sobre a clínica</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#mulher">Centro da Mulher</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#convenios">Convênios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Especialidades</h5>
+        <ul>
+          <li><a href="#especialidades">Odontologia</a></li>
+          <li><a href="#especialidades">Ginecologia &amp; Obstetrícia</a></li>
+          <li><a href="#especialidades">Pediatria</a></li>
+          <li><a href="#especialidades">Gastroenterologia</a></li>
+          <li><a href="#especialidades">Medicina Fetal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="https://wa.me/5569992612884" target="_blank" rel="noopener">WhatsApp (69) 99261-2884</a></li>
+          <li><a href="https://www.instagram.com/clinicaefrata/" target="_blank" rel="noopener">@clinicaefrata</a></li>
+          <li>Alta Floresta D'Oeste — RO</li>
+          <li>Seg–Sex · 08h–18h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="yr"></span> Éfrata — Centro Clínico Integrado · Todos os direitos reservados.</span>
+      <span>Feito com cuidado em Alta Floresta D'Oeste.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WA ============ -->
+<a class="wa-float" href="https://wa.me/5569992612884?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20%C3%89frata." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Agende pelo WhatsApp</span>
+</a>
+
+<script>
+/* ==== HEADER SCROLL ==== */
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ==== MOBILE MENU ==== */
+const burger = document.getElementById('burger');
+const menu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+const toggleMenu = (open) => {
+  menu.classList.toggle('open', open);
+  menu.setAttribute('aria-hidden', String(!open));
+  burger.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+};
+burger.addEventListener('click', () => toggleMenu(true));
+closeMenu.addEventListener('click', () => toggleMenu(false));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ==== REVEAL ON SCROLL ==== */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ==== FAQ ACCORDION ==== */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  q.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+/* ==== YEAR ==== */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ==== SMOOTH SCROLL ==== */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const id = a.getAttribute('href');
+    if (id && id.length > 1 && document.querySelector(id)) {
+      e.preventDefault();
+      document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
